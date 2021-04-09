@@ -2,10 +2,14 @@
   "name": "todos-app-iman-web",
   "version": "0.1.0",
   "private": true,
+  "main": "public/electron.js",
+  "homepage": "./",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "electron-is-dev": "1.2.0",
+    "electron-squirrel-startup": "^1.0.0",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "pouchy-store": "file:./local_modules/pouchy-store-patch",
@@ -21,8 +25,12 @@
     "start": "react-dotenv && react-scripts start",
     "build": "react-dotenv && react-scripts build",
     "serve": "react-dotenv && serve build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "react-dotenv && react-scripts test",
+    "eject": "react-dotenv && react-scripts eject",
+    "dev": "concurrently -k \"BROWSER=none npm start\" \"npm:electron\"",
+    "electron": "wait-on tcp:3000 && electron-forge start",
+    "package": "react-dotenv && react-scripts build && electron-forge package",
+    "make": "react-dotenv && react-scripts build && electron-forge make"
   },
   "eslintConfig": {
     "extends": [
@@ -41,5 +49,46 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.54",
+    "@electron-forge/maker-deb": "^6.0.0-beta.54",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.54",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
+    "@electron-forge/maker-zip": "^6.0.0-beta.54",
+    "concurrently": "5.2.0",
+    "electron": "9.1.1",
+    "electron-devtools-installer": "^3.1.1",
+    "wait-on": "5.1.0"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "icon": "icons/mac/icon.icns",
+        "name": "Todo App Iman"
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "todos_app_iman_web"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
   }
 }
