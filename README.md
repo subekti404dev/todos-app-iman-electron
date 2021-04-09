@@ -1,11 +1,11 @@
-# Todos Web App by Iman
+# Todos Desktop App by Iman
 ## Screenshot
 
-![Todos App](https://media.giphy.com/media/rfnEa22Z6Vt8Y7mmYx/giphy.gif)
+![Todos App](https://i.imgur.com/nNSUXcL.png)
 ## How to Install
 ```bash
   # 1. clone this repo
-        git clone https://github.com/subekti404dev/todos-app-iman-web.git
+        git clone https://github.com/subekti404dev/todos-app-iman-desktop.git
   
   # 2. move into project directory
        cd todos-app-iman
@@ -16,11 +16,13 @@
        yarn install
 
   # 4. running project
-       npm run start
+       npm run dev
        # or
-       yarn start 
+       yarn dev 
 
-  # 4. open project url on browser
-       http://localhost:3000
+  # 4. build project
+       npm run make
+       # or
+       yarn make 
       
 ```
