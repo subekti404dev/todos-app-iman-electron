@@ -5,7 +5,7 @@
 ## How to Install
 ```bash
   # 1. clone this repo
-        git clone https://github.com/subekti404dev/todos-app-iman-desktop.git
+        git clone https://github.com/subekti404dev/todos-app-iman-electron.git
   
   # 2. move into project directory
        cd todos-app-iman
