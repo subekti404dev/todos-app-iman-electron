@@ -8,7 +8,7 @@
         git clone https://github.com/subekti404dev/todos-app-iman-electron.git
   
   # 2. move into project directory
-       cd todos-app-iman
+       cd todos-app-iman-electron
   
   # 3. install dependencies
        npm install
